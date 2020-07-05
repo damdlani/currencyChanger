@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency changer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css/global.css">
+    <link rel="stylesheet" href="style.css/main.css">
+    <link rel="stylesheet" href="style.css/footer.css">
+    <script src="https://kit.fontawesome.com/478e816e7d.js" crossorigin="anonymous" SameSite="secure"></script>
+    <script defer src="JS/script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <main class="main">
+            <form class="main__form js-form">
+                <fieldset class="main__fieldset">
+                    <legend class="main__legend">Przelicznik walut</legend>
+                    <p>
+                        <label class="main__label"><span class="main__span">Kwota <span class="euro">€</span></span>
+                            <input type="number" step="any" required min="0" class="main__input js-price1">
+                        </label>
+                    </p>
+                    <i class="fas fa-exchange-alt main__icon js-changeIcon main__icon"></i>
+                    <p>
+                        <label class="main__label"><span class="main__span">Kwota <span class="pln">PLN</span></span>
+                            <input type="number" step="any" min="0" class="main__input js-price2">
+                        </label>
+                    </p>
+                    <p class="main__currency">
+                        1EUR = <span class="js-currency1"></span> PLN
+                    </p>
+                    <p class="main__currency">
+                        1PLN = <span class="js-currency2"></span> EUR
+                    </p>
+                    <p class="main__note">Podane kursy walut generowane są losowo.</p>
+                </fieldset>
+                <button class="main__button">Przelicz</button>
+            </form>
+        </main>
+        <footer class="footer">&copy;Krzysztof Kwieciński 2020</footer>
+    </div>
+</body>
+
+</html>
