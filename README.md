@@ -2,6 +2,8 @@
 
 ## To be modified in the future.
 
+**[See page](https://damdlani.github.io/currencyChanger/)**
+
 - Currency rates are generated randomly.
 - So far only one currency change is possible.
 - HTML written with **BEM** convention
