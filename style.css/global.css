@@ -19,3 +19,9 @@ html {
     max-width: 1000px;
     margin: 0 auto;
 }
+body {
+    background-image: url(https://cdn.pixabay.com/photo/2018/05/03/16/01/pattern-3371709_960_720.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
