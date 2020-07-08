@@ -1,18 +1,14 @@
 {
-    //variables
     const topValue = document.querySelector(".js-price1");
     const bottomValue = (document.querySelector(".js-price2"));
-
     const currencyEuro = ((Math.random() / 5) + 4.3).toFixed(4);
     const currencyPLN = (1 / currencyEuro).toFixed(4);
     const currencyTopSign = document.querySelector(".js-currencyTop");
 
-
-
-
     const disablingInput = () => {
         bottomValue.setAttribute("disabled", "")
     }
+
     const countingCurrency = () => {
         let currencyResult;
         if (currencyTopSign.innerText === "EUR") {
@@ -22,6 +18,7 @@
         }
         bottomValue.value = currencyResult.toFixed(2);
     }
+
     const toggleCurrencies = () => {
         const currencyBottomSign = document.querySelector(".js-currencyBottom");
 
@@ -35,6 +32,9 @@
         } else {
             currencyBottomSign.innerText = "PLN";
         };
+       
+    }
+    const clearInput = () => {
         topValue.value = "";
         bottomValue.value = "";
     }
@@ -53,8 +53,11 @@
             e.preventDefault();
             countingCurrency();
         });
-        changeCurrencyButton.addEventListener("click", toggleCurrencies);
+        changeCurrencyButton.addEventListener("click", () => {
+            toggleCurrencies();
+            clearInput();
+        });
     }
     init()
-    
+
 }
