@@ -4,18 +4,20 @@
     const currencyEuro = ((Math.random() / 5) + 4.3).toFixed(4);
     const currencyPLN = (1 / currencyEuro).toFixed(4);
     const currencyTopSign = document.querySelector(".js-currencyTop");
-
+    
     const disablingInput = () => {
         bottomValue.setAttribute("disabled", "")
     }
 
-    const countingCurrency = () => {
-        let currencyResult;
+    const countCurrency = (currencyEuro, currencyPLN) => {
         if (currencyTopSign.innerText === "EUR") {
-            currencyResult = +topValue.value * currencyEuro;
+            return +topValue.value * currencyEuro;
         } else {
-            currencyResult = +topValue.value * currencyPLN;
+            return +topValue.value * currencyPLN;
         }
+    }
+    const displayCurrency = () => {
+        let currencyResult = countCurrency(currencyEuro, currencyPLN);
         bottomValue.value = currencyResult.toFixed(2);
     }
 
@@ -51,7 +53,7 @@
         topValue.addEventListener("input", disablingInput);
         formElement.addEventListener("submit", (e) => {
             e.preventDefault();
-            countingCurrency();
+            displayCurrency();
         });
         changeCurrencyButton.addEventListener("click", () => {
             toggleCurrencies();
