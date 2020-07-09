@@ -1,10 +1,16 @@
 {
     const topValue = document.querySelector(".js-price1");
     const bottomValue = (document.querySelector(".js-price2"));
-    const currencyEuro = ((Math.random() / 5) + 4.3).toFixed(4);
-    const currencyPLN = (1 / currencyEuro).toFixed(4);
     const currencyTopSign = document.querySelector(".js-currencyTop");
-    
+
+
+    const setCurrencyEuro = () => {
+        return ((Math.random() / 5) + 4.3).toFixed(4);
+    }
+    const setCurrencyPLN = (currencyEuro) => {
+        return (1 / currencyEuro).toFixed(4);
+    }
+
     const disablingInput = () => {
         bottomValue.setAttribute("disabled", "")
     }
@@ -16,7 +22,8 @@
             return +topValue.value * currencyPLN;
         }
     }
-    const displayCurrency = () => {
+    const displayCurrency = (currencyEuro, currencyPLN) => {
+
         let currencyResult = countCurrency(currencyEuro, currencyPLN);
         bottomValue.value = currencyResult.toFixed(2);
     }
@@ -34,26 +41,32 @@
         } else {
             currencyBottomSign.innerText = "PLN";
         };
-       
+
     }
     const clearInput = () => {
         topValue.value = "";
         bottomValue.value = "";
     }
 
-    const init = () => {
-        const formElement = document.querySelector(".js-form");
+    const displayCurrencyValues = (euro, pln) => {
         const currencyTop = document.querySelector(".js-currency1");
         const currencyBottom = document.querySelector(".js-currency2");
+        currencyTop.innerHTML = euro;
+        currencyBottom.innerHTML = pln;
+    }
+
+    const init = () => {
+        const formElement = document.querySelector(".js-form");
         const changeCurrencyButton = document.querySelector(".js-changeIcon");
+        const currencyEuro = setCurrencyEuro();
+        const currencyPLN = setCurrencyPLN(currencyEuro);
 
-        currencyTop.innerHTML = currencyEuro;
-        currencyBottom.innerHTML = currencyPLN;
 
+        displayCurrencyValues(currencyEuro, currencyPLN);
         topValue.addEventListener("input", disablingInput);
         formElement.addEventListener("submit", (e) => {
             e.preventDefault();
-            displayCurrency();
+            displayCurrency(currencyEuro, currencyPLN);
         });
         changeCurrencyButton.addEventListener("click", () => {
             toggleCurrencies();
